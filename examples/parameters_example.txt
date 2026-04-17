@@ -1,0 +1,82 @@
+# ============================================================
+# Example parameter file for low-rank WFLO
+# Compatible with FLORIS-based optimization workflow
+# Format:
+#   key = value
+# ============================================================
+
+# -------------------------
+# FLORIS input
+# -------------------------
+floris_input_file = gch.yaml
+
+# -------------------------
+# Case definition
+# -------------------------
+case_name = real_case3
+case_type = real
+case_index = 3
+
+# Wind-resource files
+wind_rose_file = wind_conditions/windRose_3.npy
+ti_file = wind_conditions/tiMatrix_3.npy
+
+# -------------------------
+# Layout definition
+# -------------------------
+Nx = 6
+Ny = 6
+spacing_D = [6.0, 6.0]
+min_spacing_D = 3
+shape = Rectangle
+aspect_ratio = 1.0
+
+# -------------------------
+# Optimization setup
+# -------------------------
+n_individuals = 64
+seconds_per_iteration = 60
+total_optimization_seconds = 1800
+n_workers = 16
+random_seed = None
+grid_step_size = 50.0
+relegation_number = 1
+interface = multiprocessing
+
+# -------------------------
+# Evaluator mode
+# Options:
+#   exact
+#   rank1
+#   adaptive
+#   hybrid
+# -------------------------
+aep_mode = rank1
+
+# For hybrid mode only:
+# switch from rank1 to exact after this fraction of the total wall-clock budget
+hybrid_exact_start_ratio = 0.5
+
+# -------------------------
+# Low-rank evaluator parameters
+# -------------------------
+lowrank_cut_in = 3.0
+rated_ws = 12.5
+eff_unity_ws_start = 17.0
+pivot_ws_min = 4.0
+pivot_ws_max = 12.5
+adaptive_k = 4
+tie_atol_x_max = 1e-6
+
+# -------------------------
+# Wind-data processing
+# -------------------------
+use_cut_out = 1
+cut_out_ws = 25.0
+ti_constant = 0.06
+
+# -------------------------
+# Output
+# -------------------------
+results_dir = results
+save_history = 1
