@@ -1,0 +1,3 @@
+Recommended manuscript text:
+
+The reference implementation of the proposed sparse Rank-1 and Adaptive AEP evaluators, together with runnable FLORIS-based examples and an illustrative Rank-1-to-Exact hybrid optimization driver, is publicly available at: https://github.com/Zkun-D/LowRank_AEP.
